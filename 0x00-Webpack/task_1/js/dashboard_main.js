@@ -15,3 +15,8 @@ function updateCounter() {
     }, 100));
 }
 
+// $('button').click(updateCounter);
+
+let debounce_fun = _.debounce(updateCounter, 1000);
+debounce_fun();
+

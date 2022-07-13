@@ -1,0 +1,2 @@
+*,:after,:before{box-sizing:border-box;margin:0;padding:0}.App{display:grid;grid-template-rows:1fr 1fr}.App-header{align-items:center;border-bottom:4px solid red;display:flex}.App-header h1{color:red}.App-body{padding-left:3rem;padding-top:3rem}.App-footer p{text-align:center}.App-footer{border-top:4px solid red;padding-top:1rem}.Notifications{border:3px dotted red;padding:5rem}.Notifications p{left:1rem;margin-bottom:25px;position:absolute;top:3rem}ul li[data=default]{color:blue}ul li[data=urgent]{color:red}
+/*# sourceMappingURL=main.c161dbd2.css.map*/

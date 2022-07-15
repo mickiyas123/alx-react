@@ -1,8 +1,8 @@
 const path = require('path')
-const { LoaderOptionsPlugin } = require('webpack')
 
 module.exports = {
     mode: 'development',
+    devtool: 'inline-source-map',
     // look at index.js 
     entry: path.resolve(__dirname, '../src/index.js'),
 
@@ -42,11 +42,11 @@ module.exports = {
                     },
                 ],
             },
-            {
-                test: /\.js$/,
-                enforce: "pre",
-                use: ["source-map-loader"],
-              },
+            // {
+            //     test: /\.js$/,
+            //     enforce: "pre",
+            //     use: ["source-map-loader"],
+            //   },
         ]
     }
 }

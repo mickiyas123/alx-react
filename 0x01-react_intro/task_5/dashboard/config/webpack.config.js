@@ -21,9 +21,13 @@ module.exports = {
         errorDetails: true,
         children: true
       },
-    devServer: {
-        static: path.join(__dirname, '../dist')
-    },
+      devServer: {
+        static: {
+          directory: path.join(__dirname, '../dist'),
+        },
+        hot: true,
+        port: 8564
+      },
     module: {
         rules: [
             {

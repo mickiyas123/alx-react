@@ -1,3 +1,5 @@
+import React from 'react';
+import Adapter from 'enzyme-adapter-react-16';
 import { getFullYear, getFooterCopy, getLatestNotification } from './utils';
 
 test('Checking Year', () => {

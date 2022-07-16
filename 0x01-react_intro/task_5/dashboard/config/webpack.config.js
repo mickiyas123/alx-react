@@ -1,52 +1,61 @@
-const path = require('path')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
-    devtool: 'inline-source-map',
-    // look at index.js 
-    entry: path.resolve(__dirname, '../src/index.js'),
-
-    // put the out put of index.js in bundle.js
+    mode:  "production",
+    entry: path.join(__dirname, '../src/index.js'),
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: path.join(__dirname, '../dist'),
         filename: 'bundle.js'
     },
-
-    devServer: {
-        static: {
-            directory: path.resolve(__dirname, '../dist')
-        },
-            port: 9000,
-            open:true,
-            hot: true,
-            compress: true,
-            historyApiFallback: true,
+    performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
     },
-
+    devtool: "inline-source-map",
+    stats: {
+        colors: true,
+        modules: true,
+        reasons: true,
+        errorDetails: true,
+        children: true
+      },
+    devServer: {
+        static: path.join(__dirname, '../dist')
+    },
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"]
+                test:/\.(js|jsx)$/i,
+                exclude:/node_modules/,
+                use: {
+                    loader: 'babel-loader'
+                }
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
                 use: [
                     'file-loader',
                     {
-                      loader: 'image-webpack-loader',
-                      options: {
-                        bypassOnDebug: true, // webpack@1.x
-                        disable: true, // webpack@2.x and newer
-                      },
+                        loader: 'image-webpack-loader',
+                        options: {
+                            bypassOnDebug: true, // webpack@1.x
+                            disable: true, // webpack@2.x and newer
+                        },
                     },
                 ],
-            },
-            {
-                test: /\.(js|jsx)$/i,
-                exclude: /node_modules/,
-                use: 'babel-loader'
-              },
+            }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, '../src/index.html'),
+            favicon: path.join(__dirname, '../src/assets/favicon.ico')
+        })
+    ]
 }

@@ -1,0 +1,8 @@
+.footer p {
+    text-align: center;
+  }
+  
+  .footer {
+    border-top: 4px solid red;
+    padding-top: 1rem;
+  }

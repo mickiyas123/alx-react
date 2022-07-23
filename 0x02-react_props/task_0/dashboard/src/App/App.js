@@ -10,15 +10,13 @@ function App() {
     <React.Fragment>
       <Notifications />
       <div className="App">
-        <div className="App-header">
           <Header />
-        </div>
           <div className="App-body">
             <Login />
           </div>
-          <div className="App-footer">
-            <Footer />
-          </div>
+      </div>
+      <div className="App-footer">
+        <Footer />
       </div>
     </React.Fragment>
   );

@@ -1,22 +1,14 @@
 import React from "react";
-import Adapter from 'enzyme-adapter-react-16';
-import { shallow, render, configure } from "enzyme";
-import Footer from './Footer'
+import { shallow } from "enzyme";
+import Footer from "./Footer";
 
-configure({adapter: new Adapter()});
-
-describe("Footer Taste", () => {
-    test("Footer renders without crashing", () => {
-        shallow(<Footer />)
-    });
-
-    test("Footer renders without crashing", () => {
-        render(<Footer />)
-    });
-
-    test("Footer contains a text 'Copyright' ", () => {
+describe("Testing Footer Component", () => {
+    test("renders with out crashing", () => {
         const wrapper = shallow(<Footer />)
+    })
+    test("check the components at the very least render the text `Copyright`", () => {
+        const wrapper = shallow(<Footer/>)
         const par = wrapper.find('p')
-        expect(par.text().includes('Copyright')).toBe(true);
+        expect(par.text()).toContain("Copyright") 
     })
 })

@@ -6,19 +6,19 @@ test("getFullYear returns the correct year", () => {
     expect(year).toBe(2022)
 })
 
-test("renders Holberton School when `isIndex` is true", () => {
+test("returns `Holberton School` when `isIndex` is true", () => {
     const footerText = getFooterCopy(true);
     expect(footerText).toBe('Holberton School');
 })
-test("renders Holberton School main dashboard when `isIndex` is false", () => {
+test("returns `Holberton School main dashboard` when `isIndex` is false", () => {
     const footerText = getFooterCopy(false);
     expect(footerText).toBe('Holberton School main dashboard');
 })
-test("getLatestNotification returns string", () => {
+test("returns string", () => {
     const notificationText = getLatestNotification()
     expect(typeof notificationText).toBe("string");
 })
-test("getLatestNotification returns a specific string", () => {
+test("returns a specific string", () => {
     const notificationText = getLatestNotification()
     expect(notificationText).toBe("<strong>Urgent requirement</strong> - complete by EOD");
 })

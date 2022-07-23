@@ -1,10 +1,8 @@
 import React from 'react';
-import Adapter from 'enzyme-adapter-react-16';
 import { shallow, render, configure } from 'enzyme';
 import Notifications from './Notifications';
-import NotificationItem from './NotificationItem'
+import NotificationItem from './NotificationItem';
 
-configure({adapter: new Adapter()});
 
 describe("App", () => {
     test("Notifications renders without crashing", () => {
@@ -13,24 +11,26 @@ describe("App", () => {
 
     test("Notifications find ul", () => {
         const wrapper = shallow(<Notifications />);
-        expect(wrapper.find('.ul')).toBeDefined();
+        expect(wrapper.find('ul').length).toBe(1);
     });
 
-    test("Notifications calls NotificationItem ", () => {
+    test("Notifications renders 3 NotificationItem", () => {
         const wrapper = shallow(<Notifications />);
         expect(wrapper.find('NotificationItem')).toHaveLength(3);
     });
 
     test("Notifications renders text", () => {
         const wrapper = shallow(<Notifications />);
-        const text = wrapper.find('p')
-        expect(text.text()).toBe('Here is the list of notifications');
+        const notificationText = wrapper.find('p')
+        expect(notificationText.text()).toBe('Here is the list of notifications');
     });
-
-     test("Check if first NotificationItem element renders the right html", () => {
-         const wrapper = shallow(<Notifications />);
-         const notiItem = wrapper.find("NotificationItem")
-         const firstHtml = notiItem.first().html()
-         expect(firstHtml).toEqual('<li data-notification-type="default">New course available</li>')
-    })
+    test("Notifications renders 3 NotificationItem", () => {
+        const wrapper = shallow(<Notifications />);
+        expect(wrapper.containsMatchingElement(<NotificationItem />)).toEqual(true);
+        expect(wrapper.find(NotificationItem)).toHaveLength(3);
+    });
+    test("verify that the first NotificationItem element renders the right html", () => {
+        const wrapper = shallow(<Notifications />);
+        expect(wrapper.find(NotificationItem).first().html()).toBe('<li data-notification-type="default">New course available</li>')
+    });
 })

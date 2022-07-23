@@ -1,21 +1,13 @@
-import React from 'react';
-import {useState} from 'react';
+import React from 'react'
 
 const Login = () => {
-  const [message, setMessage] = useState('');
-
-  const handleChange = event => {
-    setMessage(event.target.value);
-
-    console.log('value is:', event.target.value);
-  };
   return (
     <React.Fragment>
         <p>Login to access the full dashboard</p>
         <label htmlFor='email'>Email: </label>
-        <input type="email" id='email' onChange={handleChange}/>
+        <input type="email" id='email' />
         <label htmlFor='pass'>Password: </label>
-        <input type="password" id='pass' onChange={handleChange}/>
+        <input type="password" id='pass'/>
         <button>OK</button>
     </React.Fragment>
   )

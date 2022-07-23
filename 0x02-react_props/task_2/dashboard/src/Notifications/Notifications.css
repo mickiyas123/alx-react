@@ -10,10 +10,10 @@
     top: 3rem;
 }
 
-ul li[data = "default"] {
+ul li[data-notification-type= "default"] {
     color: blue;
 }
 
-ul li[data = "urgent"] {
+ul li[data-notification-type = "urgent"] {
     color: red;
 }

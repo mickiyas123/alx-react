@@ -1,48 +1,45 @@
-import React from 'react';
 import App from './App';
-import Adapter from 'enzyme-adapter-react-16';
-import { shallow, render, configure } from 'enzyme';
-
-configure({adapter: new Adapter()});
+import Notifications from '../Notifications/Notifications';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import Login from '../Login/Login';
+import { shallow, render } from 'enzyme';
+import React from 'react'
 
 describe('App', () => {
     test('App should not rash', () => {
         render(<App />)
     });
 
-    test("App renders a div with the class: App-header", () => {
-        const wrapper = shallow(<App />);
-        expect(wrapper.find('.App-header')).toBeDefined();
-    });
+    // test("App renders a div with the class: App-header", () => {
+    //     const wrapper = shallow(<App />);
+    //     expect(wrapper.find('.App-header').length).toBe(1)
+    // });
 
     test("App renders a div with the class: App-body", () => {
         const wrapper = shallow(<App />);
-        expect(wrapper.find('.App-body')).toBeDefined();
+        expect(wrapper.find('.App-body').length).toBe(1);
     });
 
     test("App renders a div with the class: App-footer", () => {
         const wrapper = shallow(<App />);
-        expect(wrapper.find('.App-footer')).toBeDefined();
+        expect(wrapper.find('.App-footer').length).toBe(1);
     });
 
-    test("App contains componet Notifications", () => {
+    test("check if App component contain the Notifications component", () => {
         const wrapper = shallow(<App />);
-        expect(wrapper.find('Notifications').length).toEqual(1);
+        expect(wrapper.contains(<Notifications />)).toBeTruthy()
     })
-
-    test("App conatins component Header", () => {
+    test("check if App component contain the Header component", () => {
         const wrapper = shallow(<App />);
-        expect(wrapper.find('Header').length).toEqual(1);
+        expect(wrapper.contains(<Header />)).toBeTruthy()
     })
-
-    test("App conatins component Login", () => {
+    test("check if App component contain the Login component", () => {
         const wrapper = shallow(<App />);
-        expect(wrapper.find('Login').length).toEqual(1);
+        expect(wrapper.contains(<Login />)).toBeTruthy()
     })
-
-    test("App conatins component Footer", () => {
+    test("check if App component contain the Footer component", () => {
         const wrapper = shallow(<App />);
-        expect(wrapper.find('Footer').length).toEqual(1);
+        expect(wrapper.contains(<Footer />)).toBeTruthy()
     })
- 
 });

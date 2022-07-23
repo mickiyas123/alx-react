@@ -1,25 +1,17 @@
 import React from "react";
-import Adapter from 'enzyme-adapter-react-16';
-import { shallow, render, configure, mount } from "enzyme";
+import { shallow } from "enzyme";
 import NotificationItem from "./NotificationItem";
 
-configure({adapter: new Adapter()});
-
-describe("Notification Item", () => {
-    test("Notification Item renders with out crashing" ,() => {
-        shallow(<NotificationItem />)
-    });
-    test("Notification Item renders with out crashing" ,() => {
-        render(<NotificationItem />)
-    });
-
-    test("Check if it renders the correct html ", () => {
-        const wrapper = shallow(<NotificationItem type="default" value="test"/>)
-        expect(wrapper.find('li').text()).toBe("test");
-        expect(wrapper.find('li').prop("data-notification-type")).toBe("default")
+describe("Testing NotificationItem Component", () => {
+    test("renders component without crashing", () => {
+        const wrapper = shallow(<NotificationItem />)
     })
-    it("Check if it renders the correct html by passing a dummy html prop", () => {
-        const wrapper = shallow(<NotificationItem html="<u>test</u>" />);
-        expect(wrapper.find("li").html()).toBe("<li><u>test</u></li>");
-      });
+    test("renders the correct html by passing dummy type and value props", () => {
+        const wrapper = shallow(<NotificationItem type="urgent" value="New resume available" />)
+        expect(wrapper.html()).toBe('<li data-notification-type="urgent">New resume available</li>')
+    })
+    test("renders the correct html by passing dummy html prop", () => {
+        const wrapper = shallow(<NotificationItem html={{ __html: '<u>test</u>' }}/>)
+        expect(wrapper.html()).toBe('<li><u>test</u></li>')
+    })
 })

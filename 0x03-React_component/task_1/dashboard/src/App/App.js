@@ -21,7 +21,7 @@ const listNotifications = [
 
 class App extends Component {
   componentDidMount() {
-    document.addEventListener("keydown", this.handleKeyPress)
+    window.addEventListener("keydown", this.handleKeyPress)
   }
   handleKeyPress = (e) => {
     if (e.ctrlKey && e.key === 'h') {

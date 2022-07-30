@@ -68,7 +68,7 @@ describe("Testing Notification when displayDrawer is true listNotifications cona
         expect(wrapper.find(NotificationItem)).toHaveLength(3);
     });
      test("verify that the first NotificationItem element renders the right html", () => {
-        expect(wrapper.find(NotificationItem).first().html()).toBe('<li data-notification-type="default">New course available</li>')
+        expect(wrapper.find(NotificationItem).first().html()).toBe('<li data-notification-type="default" id="1">New course available</li>')
     });
     test("renders `Here is the list of notifications` when array is is not empty", () => {
         expect(wrapper.find('p').text()).toBe('Here is the list of notifications')
@@ -82,7 +82,6 @@ describe("", () => {
             {id: 2, value: "New resume available", type: "urgent"},
             {id: 3, html: {__html: getLatestNotification()}, type: "urgent"},
           ];
-        console.log = jest.fn()
         const wrapper = mount(<Notifications displayDrawer={true} listNotifications={listNotifications}/>);
         const mock = jest.spyOn(console, 'log')
         const firstList = wrapper.find('li').at(0)

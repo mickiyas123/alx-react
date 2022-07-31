@@ -1,10 +1,9 @@
 import App from './App';
-import Notifications from '../Notifications/Notifications';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
 import CourseList from '../CourseList/CourseList';
-import { shallow, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import React from 'react'
 
 

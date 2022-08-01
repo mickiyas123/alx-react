@@ -75,7 +75,7 @@ describe("Testing Notification when displayDrawer is true listNotifications cona
     });
 });
 
-describe("", () => {
+describe("Testing with mocking functions", () => {
     test("Check that when calling the function markAsRead on an instance of the component, the spy is being called with the right message", () => {
         const listNotifications = [
             {id: 1, value: "New course available", type: "default"},
@@ -88,6 +88,35 @@ describe("", () => {
         firstList.simulate('click')
         expect(mock).toBeCalledWith("Notification 1 has been marked as read");
         mock.mockRestore();
+    })
+})
+
+describe("Testring when Notification is a pure component", () => {
+    test("verify that when updating the props of the component with the same list, the component doesn’t rerender", () => {
+        const listNotifications = [
+            {id: 1, value: "New course available", type: "default"},
+            {id: 2, value: "New resume available", type: "urgent"},
+            {id: 3, html: {__html: getLatestNotification()}, type: "urgent"},
+          ];
+          const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={listNotifications}/>);
+          wrapper.setProps({listNotifications:listNotifications})
+          expect(wrapper.length).toBe(1)
+    })
+    test("verify that when updating the props of the component with a longer list, the component does rerender", () => {
+        const listNotifications = [
+            {id: 1, value: "New course available", type: "default"},
+            {id: 2, value: "New resume available", type: "urgent"},
+            {id: 3, html: {__html: getLatestNotification()}, type: "urgent"},
+          ];
+          const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={listNotifications}/>);
+          const listNotifications1 = [
+            {id: 1, value: "New course available", type: "default"},
+            {id: 2, value: "New resume available", type: "urgent"},
+            {id: 3, html: {__html: getLatestNotification()}, type: "urgent"},
+            {id: 4, value: "New React Course available", type: "urgent"}
+          ];
+          wrapper.setProps({listNotifications:listNotifications1})
+          expect(wrapper.find(NotificationItem).length).toBe(4)
     })
 })
     

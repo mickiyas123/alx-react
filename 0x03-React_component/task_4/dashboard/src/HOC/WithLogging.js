@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
 const WithLogging = (WrappedComponent) => {
-  const wrappedComponentName = WrappedComponent.displayName;
-  wrappedComponentName ? wrappedComponentName : (wrappedComponentName = "Component")
-  return class extends Component {
+  // Nullish coalescing operator (??)
+  const  wrappedComponentName = WrappedComponent.displayName || WrappedComponent.name || "Component";
+  return class NewComponent extends Component {
     componentDidMount() {
       console.log(`Component ${wrappedComponentName} is mounted`)
     }
@@ -14,6 +14,7 @@ const WithLogging = (WrappedComponent) => {
       return <WrappedComponent {...this.props}/>
     }
   }
+
 }
 
 

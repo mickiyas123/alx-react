@@ -4,12 +4,16 @@ import close from '../assets/close-icon.png';
 import NotificationItem from './NotificationItem';
 import PropTypes from 'prop-types'
 import NotificationItemShape from './NotificationItemShape';
+import shallowCompare from 'react-addons-shallow-compare';
 
 class Notifications extends Component {
   constructor(props) {
     super(props)
     this.onClick = this.onClick.bind(this)
     this.markAsRead = this.markAsRead.bind(this)
+  }
+  shouldComponentUpdate(nextProps) {
+    return shallowCompare(this, nextProps);
   }
   markAsRead(id) {
     console.log(`Notification ${id} has been marked as read`)

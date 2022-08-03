@@ -1,14 +1,20 @@
-import { Seq } from "immutable";
+import { Seq, Map } from 'immutable';
 
 export default function printBestStudents(inputObject) {
-    const newObject = Seq(inputObject.filter((item) => item))
-    console.log(newObject)
+  const newMap = Map(inputObject);
+  const lazySeq = Seq(newMap);
+  const gradesObject = lazySeq.filter((value) => value.score > 70).map((value) => (
+    value.firstName.toUpperCase()
+    // value.lastName.toUpperCase()
+  ));
+  console.log(gradesObject);
 }
+
 const grades = {
-    1: {
-      score: 99,
-      firstName: 'guillaume',
-      lastName: 'salva',
-    }
-  };
-printBestStudents(grades)
+  1: {
+    score: 99,
+    firstName: 'guillaume',
+    lastName: 'salva',
+  },
+};
+printBestStudents(grades);

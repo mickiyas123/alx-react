@@ -4,5 +4,5 @@ export function getListObject(array) {
   return List(array);
 }
 export function addElementToList(list, element) {
-  return list.puh(element);
+  return list.push(element);
 }

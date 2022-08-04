@@ -18,7 +18,14 @@ const styles = StyleSheet.create({
   AppBody: {
     paddingLeft: "3rem",
     paddingTop: "3rem",
-  }
+  },
+  AppFooter: {
+    borderTop: "4px solid red",
+    paddingTop: "1rem"
+  },
+  Footerp: {
+      textAlign: "center"
+    }
 })
 
 const listCourses = [
@@ -73,7 +80,7 @@ class App extends Component {
               }
             </div>
         </div>
-        <div className="App-footer">
+        <div className={css([styles.AppFooter, styles.Footerp])}>
           <Footer />
         </div>
       </React.Fragment>

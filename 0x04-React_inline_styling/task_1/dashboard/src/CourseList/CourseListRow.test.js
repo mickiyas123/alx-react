@@ -1,6 +1,9 @@
 import React from "react";
 import Enzyme, { shallow } from 'enzyme'
 import CourseListRow from "./CourseListRow";
+import {StyleSheetTestUtils} from 'aphrodite';
+
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("Test CourseListRow component", () => {
     test("renders one cell with colspan = 2 when textSecondCell does not exist and header is true", () => {

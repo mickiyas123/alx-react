@@ -4,7 +4,7 @@ import './Footer.css'
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <div>
           <p>Copyright {getFullYear()} - {getFooterCopy(true)}</p>
     </div>
   )

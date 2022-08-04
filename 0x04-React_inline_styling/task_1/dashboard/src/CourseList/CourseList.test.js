@@ -2,6 +2,9 @@ import React from "react";
 import Enzyme, {shallow, mount} from 'enzyme'
 import CourseList from "./CourseList";
 import CourseListRow from "./CourseListRow";
+import {StyleSheetTestUtils} from 'aphrodite';
+
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("Test CourseList Component", () => {
     let wrapper;

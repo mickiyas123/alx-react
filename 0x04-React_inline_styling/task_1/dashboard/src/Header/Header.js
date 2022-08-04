@@ -3,18 +3,18 @@ import logo from '../assets/holberton-logo.jpg';
 import { StyleSheet, css } from 'aphrodite';
 
 const styles = StyleSheet.create({
-  "AppHeader": {
+  AppHeader: {
     display: "flex",
     alignItems: "center",
     borderBottom: "4px solid red"
   },
   
-  "AppHeaderH1": {
+  AppHeaderH1: {
     color: "red"
   },
   Applogo :{
-    width:400,
-    height: 400
+    width:"400px",
+    height: "400px"
   }
 })
 

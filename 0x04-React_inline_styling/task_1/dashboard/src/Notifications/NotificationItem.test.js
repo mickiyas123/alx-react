@@ -2,6 +2,9 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import NotificationItem from "./NotificationItem";
 import Notifications from './Notifications'
+import {StyleSheetTestUtils} from 'aphrodite';
+
+StyleSheetTestUtils.suppressStyleInjection();
 
 
 describe("Testing NotificationItem Component", () => {

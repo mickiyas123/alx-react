@@ -1,6 +1,9 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import BodySection from './BodySection'
+import {StyleSheetTestUtils} from 'aphrodite';
+
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("Testing BodySection", () => {
     let wrapper;

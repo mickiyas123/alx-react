@@ -11,7 +11,7 @@ import BodySection from '../BodySection/BodySection';
 import { StyleSheet, css } from 'aphrodite';
 
 const styles = StyleSheet.create({
-  App : {
+  App: {
     display: 'grid',
     gridTemplateRows: "1fr 1fr",
   },
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     paddingLeft: "3rem",
     paddingTop: "3rem",
   },
-  AppFooter: {
+  footer: {
     borderTop: "4px solid red",
     paddingTop: "1rem"
   },
@@ -80,7 +80,7 @@ class App extends Component {
               }
             </div>
         </div>
-        <div className={css([styles.AppFooter, styles.Footerp])}>
+        <div className={css([styles.footer, styles.Footerp])}>
           <Footer />
         </div>
       </React.Fragment>

@@ -3,16 +3,16 @@ import logo from '../assets/holberton-logo.jpg';
 import { StyleSheet, css } from 'aphrodite';
 
 const styles = StyleSheet.create({
-  AppHeader: {
+  appHeader: {
     display: "flex",
     alignItems: "center",
     borderBottom: "4px solid red"
   },
   
-  AppHeaderH1: {
+  h1: {
     color: "red"
   },
-  Applogo :{
+  logo :{
     width:"400px",
     height: "400px"
   }
@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
 
 const Header = () => {
   return (
-    <div className={css(styles.AppHeader)}>
-          <img src={logo} className={css(styles.Applogo)} alt="logo" />
-          <h1 className={css(styles.AppHeaderH1)}>School dashboard</h1>
+    <div className={css(styles.appHeader)}>
+          <img src={logo} className={css(styles.logo)} alt="logo" />
+          <h1 className={css(styles.h1)}>School dashboard</h1>
     </div>
   )
 }

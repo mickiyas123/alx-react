@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
       paddingBottom: "20px",
       paddingTop: "15px",
     }
-  }
+  },
 })
 
 class NotificationItem extends PureComponent {

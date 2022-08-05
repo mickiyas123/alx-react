@@ -6,6 +6,31 @@ import NotificationItemShape from './NotificationItemShape';
 import shallowCompare from 'react-addons-shallow-compare';
 import { StyleSheet, css} from 'aphrodite';
 
+
+const changeInOpacity = {
+  'from': {
+    opacity: 0.5,
+  },
+
+  'to': {
+    opacity: 1,
+  }
+}
+
+const makeElementBounce = {
+  '0%': {
+    transform: 'translateY(-5px)',
+},
+
+'50%': {
+    transform: 'translateY(0px)',
+},
+
+'100%': {
+    transform: 'translateY(5px)',
+},
+}
+
 const styles = StyleSheet.create({
   Notifications: {
     border: "3px dotted red",
@@ -36,6 +61,14 @@ const styles = StyleSheet.create({
       top: "0",
       left: "0",
       border: "none"
+    }
+  },
+  hover: {
+    ':hover': {
+        cursor: "pointer",
+        animationName: [changeInOpacity, makeElementBounce],
+        animationDuration: '0.5s, 1s',
+        animationIterationCount: '3',
     }
   }
 })
@@ -74,7 +107,7 @@ class Notifications extends Component {
             }
           </ul>
       </div>}
-      {this.props.displayDrawer === false && <div className={css([styles.menuItem])}>
+      {this.props.displayDrawer === false && <div className={css([styles.menuItem, styles.hover])}>
         Your Notification
       </div> }
       

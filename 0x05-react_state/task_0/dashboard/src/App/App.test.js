@@ -76,6 +76,7 @@ describe("Testing states", () => {
     let Appinstnace;
     beforeEach(() => {
         wrapper = mount(<App />)
+        wrapper.setProps({displayDrawer:false})
         Appinstnace = wrapper.instance()
     })
     test("verify that the default state for `displayDrawer`, is false", () => {

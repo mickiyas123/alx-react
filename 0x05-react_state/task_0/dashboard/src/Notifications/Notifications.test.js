@@ -125,16 +125,25 @@ describe("Testring when Notification is a pure component", () => {
 })
 
 describe("Test when function `handleDisplayDrawer` and `handleHideDrawer` passed as props", () => {
-    let wrapper;
-    let appWrapper = mount(<App />)
-    let handleDisplayDrawer = jest.spyOn(appWrapper.instance(), 'handleDisplayDrawer')
-    let handleHideDrawer = jest.spyOn(appWrapper.instance(), 'handleHideDrawer')
+    let wrapper, appWrapper, handleDisplayDrawer, handleHideDrawer;
     beforeEach(() => {
+        appWrapper = mount(<App />)
+        handleDisplayDrawer = jest.spyOn(appWrapper.instance(), 'handleDisplayDrawer')
+        handleHideDrawer = jest.spyOn(appWrapper.instance(), 'handleHideDrawer')
         wrapper = mount(<Notifications handleDisplayDrawer={handleDisplayDrawer} handleHideDrawer={handleHideDrawer}/>);
     })
     test("verify that clicking on the menu item calls handleDisplayDrawer", () => {
-        handleDisplayDrawer()
-        // console.debug(wrapper.html())
+        const notifElement = wrapper.find('#notif')
+        notifElement.simulate('click')
+        expect(handleDisplayDrawer).toHaveBeenCalled()
+        expect(appWrapper.state().displayDrawer).toBe(true)
+    })
+    test("verify that clicking on the button calls handleHideDrawer", () => {
+        wrapper.setProps({displayDrawer: true})
+        const buttonElement = wrapper.find('button')
+        buttonElement.simulate('click')
+        expect(handleHideDrawer).toHaveBeenCalled()
+        expect(appWrapper.state().displayDrawer).toBe(false)
     })
 })
     

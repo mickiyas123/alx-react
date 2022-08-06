@@ -2,6 +2,9 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import WithLogging from './WithLogging'
 import Login from '../Login/Login'
+import {StyleSheetTestUtils} from 'aphrodite';
+
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("Testing WithLogging", () => {
     let mockConsoleLog;

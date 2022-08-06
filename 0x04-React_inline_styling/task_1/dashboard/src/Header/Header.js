@@ -3,7 +3,7 @@ import logo from '../assets/holberton-logo.jpg';
 import { StyleSheet, css } from 'aphrodite';
 
 const styles = StyleSheet.create({
-  appHeader: {
+  header: {
     display: "flex",
     alignItems: "center",
     borderBottom: "4px solid red"
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 
 const Header = () => {
   return (
-    <div className={css(styles.appHeader)}>
+    <div className={css(styles.header)}>
           <img src={logo} className={css(styles.logo)} alt="logo" />
           <h1 className={css(styles.h1)}>School dashboard</h1>
     </div>

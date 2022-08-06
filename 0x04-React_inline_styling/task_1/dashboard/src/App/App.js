@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     display: 'grid',
     gridTemplateRows: "1fr 1fr",
   },
-  AppBody: {
+  body: {
     paddingLeft: "3rem",
     paddingTop: "3rem",
   },
@@ -63,7 +63,7 @@ class App extends Component {
         <Notifications listNotifications={listNotifications} />
         <div className={css(styles.App)}>
             <Header />
-            <div className={css(styles.AppBody)}>
+            <div className={css(styles.body)}>
               {this.props.isLoggedIn ?
               <>
               <BodySection title="News from the School">

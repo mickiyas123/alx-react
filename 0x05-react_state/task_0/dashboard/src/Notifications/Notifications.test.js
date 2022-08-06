@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Notifications from './Notifications';
 import NotificationItem from './NotificationItem';
+import App from '../App/App';
 import { getLatestNotification } from '../utils/utils';
 import {StyleSheetTestUtils} from 'aphrodite';
 
@@ -120,6 +121,20 @@ describe("Testring when Notification is a pure component", () => {
           ];
           wrapper.setProps({listNotifications:listNotifications1})
           expect(wrapper.find(NotificationItem).length).toBe(4)
+    })
+})
+
+describe("Test when function `handleDisplayDrawer` and `handleHideDrawer` passed as props", () => {
+    let wrapper;
+    let appWrapper = mount(<App />)
+    let handleDisplayDrawer = jest.spyOn(appWrapper.instance(), 'handleDisplayDrawer')
+    let handleHideDrawer = jest.spyOn(appWrapper.instance(), 'handleHideDrawer')
+    beforeEach(() => {
+        wrapper = mount(<Notifications handleDisplayDrawer={handleDisplayDrawer} handleHideDrawer={handleHideDrawer}/>);
+    })
+    test("verify that clicking on the menu item calls handleDisplayDrawer", () => {
+        handleDisplayDrawer()
+        // console.debug(wrapper.html())
     })
 })
     

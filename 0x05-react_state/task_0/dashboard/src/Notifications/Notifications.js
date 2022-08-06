@@ -62,7 +62,7 @@ class Notifications extends Component {
       <div className={css([styles.Notifications, styles.small])}>
         <button aria-label="Close"
                 style={{position: 'absolute',top: '1rem', right: '1rem'}}
-                onClick={this.onClick}>
+                onClick={this.props.handleHideDrawer.bind(this)}>
             <img src={close} alt="Close" />
         </button>
         {this.props.listNotifications.length !== 0 ? <p className={css(styles.Notificationsp)}>Here is the list of notifications</p> : '' }
@@ -74,9 +74,11 @@ class Notifications extends Component {
             }
           </ul>
       </div>}
-      {this.props.displayDrawer === false && <div className={css([styles.menuItem])}>
-        Your Notification
-      </div> }
+      {
+      this.props.displayDrawer === false 
+      && 
+      <div className={css([styles.menuItem])} onClick={this.props.handleDisplayDrawer}>Your Notification</div> 
+      }
       
       </>
     )
@@ -86,12 +88,16 @@ class Notifications extends Component {
 
 Notifications.defaultProps = {
   displayDrawer: false,
-  listNotifications: []
+  listNotifications: [],
+  handleDisplayDrawer: () => {return },
+  handleHideDrawer: () => {return }
 }
 
 Notifications.propTypes = {
   displayDrawer: PropTypes.bool,
-  listNotifications: PropTypes.arrayOf(NotificationItemShape)
+  listNotifications: PropTypes.arrayOf(NotificationItemShape),
+  handleDisplayDrawer: PropTypes.func,
+  handleHideDrawer: PropTypes.func
 }
 
 export default Notifications

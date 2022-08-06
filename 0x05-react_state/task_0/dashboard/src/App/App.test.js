@@ -3,7 +3,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
 import CourseList from '../CourseList/CourseList';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from 'react'
 import {StyleSheetTestUtils} from 'aphrodite';
 
@@ -70,3 +70,27 @@ describe('App', () => {
         })
     })
 });
+
+describe("Testing states", () => {
+    let wrapper;
+    let Appinstnace;
+    beforeEach(() => {
+        wrapper = mount(<App />)
+        Appinstnace = wrapper.instance()
+    })
+    test("verify that the default state for `displayDrawer`, is false", () => {
+        expect(wrapper.state().displayDrawer).toBe(false);
+    })
+    test("Verify that after calling `handleDisplayDrawer`, the state should be true", () => {
+        const handleDisplayDrawer = jest.spyOn(Appinstnace, 'handleDisplayDrawer')
+        handleDisplayDrawer()
+        expect(handleDisplayDrawer).toHaveBeenCalled()
+        expect(wrapper.state().displayDrawer).toBe(true);
+    })
+    test("verify that after calling `handleHideDrawer`, the state is updated to be false", () => {
+        const handleHideDrawer = jest.spyOn(Appinstnace, 'handleHideDrawer')
+        handleHideDrawer()
+        expect(handleHideDrawer).toHaveBeenCalled()
+        expect(wrapper.state().displayDrawer).toBe(false)
+    })
+})

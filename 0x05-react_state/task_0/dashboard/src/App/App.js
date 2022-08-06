@@ -47,10 +47,19 @@ const listNotifications = [
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {displayDrawer: false};
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
+    this.handleHideDrawer = this.handleHideDrawer.bind(this);
   }
   componentDidMount() {
     document.addEventListener("keydown", this.handleKeyPress)
+  }
+  handleDisplayDrawer = () => {
+    this.setState({displayDrawer: true})
+  }
+  handleHideDrawer = () => {
+    this.setState({displayDrawer: false})
   }
   handleKeyPress = (e) => {
     if (e.ctrlKey && e.key === 'h') {
@@ -65,7 +74,12 @@ class App extends Component {
   render () {
     return (
       <React.Fragment>
-        <Notifications listNotifications={listNotifications} />
+        <Notifications 
+          listNotifications={listNotifications}
+          displayDrawer={this.state.displayDrawer}
+          handleDisplayDrawer={this.handleDisplayDrawer}
+          handleHideDrawer={this.handleHideDrawer}
+        />
         <div className={css([styles.App, styles.small])}>
             <Header />
             <div className={css(styles.AppBody)}>

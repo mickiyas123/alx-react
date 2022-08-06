@@ -71,7 +71,7 @@ describe("Testing Notification when displayDrawer is true listNotifications cona
         expect(wrapper.find(NotificationItem)).toHaveLength(3);
     });
      test("verify that the first NotificationItem element renders the right html", () => {
-        expect(wrapper.find(NotificationItem).first().html()).toBe('<li data-notification-type="default" class="default_1tsdo2i">New course available</li>')
+        expect(wrapper.find(NotificationItem).first().html()).toBe('<li data-notification-type="default" class="default_1tsdo2i-o_O-small_127e720">New course available</li>')
     });
     test("renders `Here is the list of notifications` when array is is not empty", () => {
         expect(wrapper.find('p').text()).toBe('Here is the list of notifications')

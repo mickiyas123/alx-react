@@ -12,6 +12,9 @@ describe("Testing NotificationItem Component", () => {
     beforeEach(() => {
         wrapper = shallow(<NotificationItem />)
     })
+    afterEach(() => {
+        wrapper.unmount()
+    })
     test("renders component without crashing", () => {
         expect(wrapper.length).toBe(1)
     })

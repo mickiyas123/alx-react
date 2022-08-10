@@ -19,7 +19,6 @@ describe("Testing WithLogging", () => {
         expect(mockConsoleLog).toHaveBeenCalledWith("Component Component is mounted")
         wrapper.unmount()
         expect(mockConsoleLog).toHaveBeenCalled()
-        console.debug(wrapper)
         expect(mockConsoleLog).toHaveBeenCalledWith("Component Component is going to unmount")
     })
     test("test console.log was called on mount and on unmount with the name of the component when the wrapped element is the Login component", () => {

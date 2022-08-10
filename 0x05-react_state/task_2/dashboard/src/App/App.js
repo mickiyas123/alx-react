@@ -70,14 +70,13 @@ class App extends Component {
   handleKeyPress = (e) => {
     if (e.ctrlKey && e.key === 'h') {
       alert("Logging you out");
-      this.props.logOut()
+      this.state.logOut()
     }
   }
 
   logOut = () => {
     this.setState({
       user: {
-        ...this.state.user,
         email: "",
         password: "",
         isLoggedIn: false
@@ -88,7 +87,6 @@ class App extends Component {
   logIn = (email, password) => {
     this.setState({
       user: {
-        ...this.state.user,
         email: email,
         password: password,
         isLoggedIn: true
@@ -100,8 +98,9 @@ class App extends Component {
     document.removeEventListener("keydown", this.handleKeyPress)
   }
   render () {
+    const {user, logOut} = this.state
     return (
-      <AppProvider value={{user: this.state.user, logOut: this.state.logOut}}>
+      <AppProvider value={{user, logOut}}>
         <React.Fragment>
           <Notifications 
             listNotifications={listNotifications}

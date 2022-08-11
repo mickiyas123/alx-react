@@ -76,4 +76,18 @@ describe("Testing states", () => {
         expect(handleHideDrawer).toHaveBeenCalled()
         expect(wrapper.state().displayDrawer).toBe(false)
     })
+    test("test checking if logOut is being called by verifying if the state is updated correctly instead", () => {
+        const logOutMock = jest.spyOn(Appinstnace, 'logOut')
+        logOutMock()
+        expect(wrapper.state().user.email).toBe('')
+        expect(wrapper.state().user.password).toBe('')
+        expect(wrapper.state().user.isLoggedIn).toBe(false)
+    })
+    test("test to verify that the logIn function updates the state correctly", () => {
+        const logInMock = jest.spyOn(Appinstnace, 'logIn')
+        logInMock('xyz@gmail.com', 'xyz')
+        expect(wrapper.state().user.email).toBe('xyz@gmail.com')
+        expect(wrapper.state().user.password).toBe('xyz')
+        expect(wrapper.state().user.isLoggedIn).toBe(true)
+    })
 })

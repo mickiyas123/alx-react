@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
 class Header extends Component {
   render() {
     const {user, logOut} = this.context
-    console.log(user)
     return (
       <div className={css(styles.appHeader)}>
         <img src={logo} className={css(styles.logo)} alt="logo" />

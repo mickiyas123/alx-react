@@ -79,7 +79,7 @@ class Notifications extends Component {
       && 
       <div 
         className={css([styles.menuItem])} 
-        onClick={() => this.props.handleDisplayDrawer}
+        onClick={this.props.handleDisplayDrawer}
         id="notif"
       >
           Your Notification

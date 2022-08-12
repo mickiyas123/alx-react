@@ -72,6 +72,7 @@ class App extends Component {
     document.removeEventListener("keydown", this.handleKeyPress)
   }
   render () {
+    const { displayDrawer } = this.state
     return (
       <React.Fragment>
         <Notifications 
